@@ -1,66 +1,148 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { FaCheck } from "react-icons/fa6";
+import { FaRegClock } from "react-icons/fa";
+import { CgShoppingCart } from "react-icons/cg";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+    
+    <section className={styles.hero}>
+        <div className={`${styles.container} ${styles.hero__content}`}>
+            <div className={styles.hero__text}>
+                <h2 className={styles.hero__title}>トレンドの最先端へ</h2>
+                <p className={styles.hero__description}>あなたのライフスタイルを彩る厳選アイテムを取り揃えました。シンプルでありながらも個性を引き立てる商品をお届けします。</p>
+                <a href="#" className={styles.hero__button}>商品を見る</a>
+            </div>
+            <div className={styles.hero__imageWrapper}>
+                <Image
+                  src="/images/hero-image.jpg"
+                  alt="ヒーロー画像"
+                  fill
+                  style={{objectFit: "cover"}}
+                  />
+            </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+    </section>
+
+    <section className={styles.category}>
+        <div className={styles.container}>
+            <h2 className={styles.sectionTitle}>カテゴリから探す</h2>
+            <div className={styles.category__grid}>
+                <div className={`${styles.category__item} ${styles.category__itemApparel}`}>
+                    <p className={styles.category__name}>衣類</p>
+                    <p className={styles.category__description}>トレンドコレクション</p>
+                </div>
+                <div className={`${styles.category__item} ${styles.category__itemAccessories}`}>
+                    <p className={styles.category__name}>アクセサリー</p>
+                    <p className={styles.category__description}>トレンドコレクション</p>
+                </div>
+                <div className={`${styles.category__item} ${styles.category__itemGadgets}`}>
+                    <p className={styles.category__name}>ガジェット</p>
+                    <p className={styles.category__description}>トレンドコレクション</p>
+                </div>
+            </div>
         </div>
-      </main>
-    </div>
+    </section>
+
+    <section className={styles.product}>
+        <div className={styles.product__container}>
+            <h2 className={styles.sectionTitle}>新着商品</h2>
+            <div className={styles.product__grid}>
+                <div className={styles.product__card}>
+                    <div className={styles.product__imageWrapper}>
+                      <Image src="/images/denim-jacket.jpg" alt="デニムジャケット" 
+                        fill
+                        style={{objectFit: "cover"}}/>
+                    </div>
+                    <div className={styles.product__text}>
+                        <h3 className={styles.product__name}>デニムジャケット</h3>
+                        <p className={styles.product__category}>衣類</p>
+                        <div className={styles.product__details}>
+                            <p className={styles.product__price}>¥12,800</p>
+                            <a href="#" className={styles.product__link}>詳細を見る</a>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.product__card}>
+                    <div className={styles.product__imageWrapper}>
+                    <Image src="/images/leather-watch.jpg" alt="レザーウォッチ"
+                      fill
+                      style={{objectFit: "cover"}}
+                    />
+                    </div>
+                    <div className={styles.product__text}>
+                        <h3 className={styles.product__name}>レザーウォッチ</h3>
+                        <p className={styles.product__category}>アクセサリー</p>
+                        <div className={styles.product__details}>
+                            <p className={styles.product__price}>¥8,500</p>
+                            <a href="#" className={styles.product__link}>詳細を見る</a>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.product__card}>
+                    <div className={styles.product__imageWrapper}>
+                        <Image src="/images/wireless-earbuds.jpg" alt="ワイヤレスイヤホン"
+                          fill
+                          style={{objectFit: "cover"}}
+                        />
+                    </div>
+                    <div className={styles.product__text}>
+                        <h3 className={styles.product__name}>ワイヤレスイヤホン</h3>
+                        <p className={styles.product__category}>ガジェット</p>
+                        <div className={styles.product__details}>
+                            <p className={styles.product__price}>¥15,800</p>
+                            <a href="#" className={styles.product__link}>詳細を見る</a>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.product__card}>
+                    <div className={styles.product__imageWrapper}>
+                      <Image src="/images/sunglasses.jpg" alt="サングラス"
+                        fill
+                        style={{objectFit: "cover"}}
+                      />
+                    </div>
+                    <div className={styles.product__text}>
+                        <h3 className={styles.product__name}>サングラス</h3>
+                        <p className={styles.product__category}>アクセサリー</p>
+                        <div className={styles.product__details}>
+                            <p className={styles.product__price}>¥6,800</p>
+                            <a href="#" className={styles.product__link}>詳細を見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className={styles.product__viewAll}>
+                <a href="#" className={styles.product__viewAllButton}>すべての商品を見る</a>
+            </div>
+        </div>
+    </section>
+
+    <section className={styles.service}>
+        <div className={styles.container}>
+            <h2 className={styles.sectionTitle}>私たちのサービス</h2>
+            <div className={styles.service__grid}>
+                <div className={styles.service__item}>
+                    <div className={styles.service__iconWrapper}><i className={styles.service__icon}><FaCheck /></i></div>
+                    <h3 className={styles.service__title}>高品質</h3>
+                    <p className={styles.service__description}>厳選された高品質な商品のみを取り扱い、お客様の満足を追求します。</p>
+                </div>
+                <div className={styles.service__item}>
+                    <div className={styles.service__iconWrapper}><i className={styles.service__icon}><FaRegClock /></i></div>
+                    <h3 className={styles.service__title}>迅速配送</h3>
+                    <p className={styles.service__description}>注文確定から最短で翌日にお届け。スピーディーな発送体制を整えています。</p>
+                </div>
+                <div className={styles.service__item}>
+                    <div className={styles.service__iconWrapper}><i className={styles.service__icon}><CgShoppingCart /></i></div>
+                    <h3 className={styles.service__title}>簡単ショッピング</h3>
+                    <p className={styles.service__description}>ユーザーフレンドリーな設計で、ストレスなくお買い物をお楽しみいただけます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    </>
   );
 }

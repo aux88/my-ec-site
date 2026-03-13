@@ -1,0 +1,113 @@
+.container {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__contents {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.header {
+    background: #fff;
+    color: #333;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba="0, 0, 0, 0.1";
+    overflow: hidden;
+}
+
+.header__logo {
+    margin: 0;
+    font-size: 1.6rem;
+    color: #4f3af4;
+}
+
+.header__nav {
+    margin-left: 20px;
+}
+
+.header__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header__item {
+    display: inline;
+    padding: 0 15px;
+}
+
+.header__link {
+    color: #666;
+    /* Grey text for links */
+    text-decoration: none;
+}
+
+.header__link--active {
+    color: #4f3af4;
+    /* Bright purple for active link */
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 15px;
+}
+
+.header__icon {
+    font-size: 1.5rem;
+    color: #888;
+    /* Grey for icons */
+}
+
+.header__loginBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 5px;
+    font-weight: 600;
+    color: #888;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    padding: 0;
+}
+
+.header__search {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    width: 200px;
+    text-indent: 1.8rem;
+}
+
+.header__searchWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.header__search-wrapper .header__search {
+    padding-right: 35px;
+}
+
+.header__searchIcon {
+    position: absolute;
+    left: 10px;
+    top: 56%;
+    transform: translateY(-50%);
+    color: #888;
+    pointer-events: none;
+    font-size: 1.2rem;
+}
