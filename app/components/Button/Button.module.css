@@ -1,0 +1,16 @@
+.addToCartButton {
+    width: 100%;
+    padding: 16px;
+    background-color: #4f3af4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.addToCartButton:hover {
+    background-color: #3e2ecf;
+}

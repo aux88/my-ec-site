@@ -3,12 +3,14 @@ import Link from "next/link";
 import styles from "./ProductDetail.module.css";
 import { Product } from "@/app/types/Product";
 import StarRating from "@/app/components/Rating/Rating";
+import { AddToCartButton } from "../Button/AddToCartButton";
 
 type Props = {
     product: Product;
 };
 
 export const ProductDetail = ({ product }: Props) =>{
+
     return (
         <div className={styles.container}>
         <div className={styles.productDetail}>
@@ -36,9 +38,7 @@ export const ProductDetail = ({ product }: Props) =>{
                 </span>
             </div>
 
-            <button className={styles.addToCartButton}>
-                カートに追加
-            </button>
+            <AddToCartButton product={product} />
             <p className={styles.backToProducts}>
                 <Link href="/products" className={styles.backLink}>
                     商品一覧に戻る

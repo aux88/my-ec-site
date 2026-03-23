@@ -1,10 +1,17 @@
+"use client";
+
+import { useContext } from "react";
 import styles from "./Header.module.css";
 import { CgShoppingCart } from "react-icons/cg";
 import { CgUser } from "react-icons/cg";
 import { CgSearch } from "react-icons/cg";
-import Link from 'next/link'
+import Link from 'next/link';
+import CartContext from "@/app/context/CartContext";
 
 export const Header = () => {
+    const context = useContext(CartContext);
+    const cartItems = context?.cartItems || [];
+    const totalItemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
     return (
         <header className={styles.header}>
@@ -13,9 +20,9 @@ export const Header = () => {
                     <h1 className={styles.header__logo}>React EC</h1>
                     <nav className={styles.header__nav}>
                         <ul className={styles.header__list}>
-                            <li className={styles.header__item}><Link href="/" className="header__link header__link--active">ホーム</Link></li>
-                            <li className={styles.header__item}><Link href="/products" className="header__link">商品一覧</Link></li>
-                            <li className={styles.header__item}><a href="#" className="header__link">サイトについて</a></li>
+                            <li className={styles.header__item}><Link href="/" className={styles.header__link}>ホーム</Link></li>
+                            <li className={styles.header__item}><Link href="/products" className={styles.header__link}>商品一覧</Link></li>
+                            <li className={styles.header__item}><a href="#" className={styles.header__link}>サイトについて</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -24,11 +31,17 @@ export const Header = () => {
                         <input type="search" placeholder="商品を検索" className={styles.header__search} />
                         <i className={styles.header__searchIcon}><CgSearch /></i>
                     </div>
-                    <span className={styles.header__icon}><CgShoppingCart /></span>
+                    <Link href="/cart">
+                        <span className={styles.cartIconWrapper}>
+                            <span className={styles.header__icon}><CgShoppingCart /></span>
+                            {totalItemCount > 0 && (
+                                <span className={styles.badge}>{totalItemCount}</span>
+                            )}
+                        </span>
+                    </Link>
                     <button className={styles.header__loginBtn}><span className={styles.header__icon}><CgUser /></span>ログイン</button>
                 </div>
             </div>
         </header> 
     );
-
 }
