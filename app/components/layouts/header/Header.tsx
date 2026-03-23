@@ -2,6 +2,7 @@ import styles from "./Header.module.css";
 import { CgShoppingCart } from "react-icons/cg";
 import { CgUser } from "react-icons/cg";
 import { CgSearch } from "react-icons/cg";
+import Link from 'next/link'
 
 export const Header = () => {
 
@@ -12,8 +13,8 @@ export const Header = () => {
                     <h1 className={styles.header__logo}>React EC</h1>
                     <nav className={styles.header__nav}>
                         <ul className={styles.header__list}>
-                            <li className={styles.header__item}><a href="#" className="header__link header__link--active">ホーム</a></li>
-                            <li className={styles.header__item}><a href="#" className="header__link">商品一覧</a></li>
+                            <li className={styles.header__item}><Link href="/" className="header__link header__link--active">ホーム</Link></li>
+                            <li className={styles.header__item}><Link href="/products" className="header__link">商品一覧</Link></li>
                             <li className={styles.header__item}><a href="#" className="header__link">サイトについて</a></li>
                         </ul>
                     </nav>

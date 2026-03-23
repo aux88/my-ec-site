@@ -1,0 +1,43 @@
+.wrapper {
+    display: block;
+}
+
+.flex {
+    display: flex;
+}
+
+.alignCenter {
+    align-items: center;
+    column-gap: 2px;
+}
+
+.center {
+    justify-content: center;
+}
+
+.relative {
+    position: relative;
+}
+
+.text {
+    margin: 0;
+}
+
+.spacingLeft {
+    padding-left: 4px;
+}
+
+.smallText {
+    font-size: 0.75rem;
+}
+
+.starContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.starOverlay {
+    position: absolute;
+    z-index: 1;
+}

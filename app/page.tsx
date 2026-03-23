@@ -3,9 +3,10 @@ import styles from "./page.module.css";
 import { FaCheck } from "react-icons/fa6";
 import { FaRegClock } from "react-icons/fa";
 import { CgShoppingCart } from "react-icons/cg";
+import Link from 'next/link';
 
 export default function Home() {
-  return (
+    return (
     <>
     
     <section className={styles.hero}>
@@ -13,15 +14,15 @@ export default function Home() {
             <div className={styles.hero__text}>
                 <h2 className={styles.hero__title}>トレンドの最先端へ</h2>
                 <p className={styles.hero__description}>あなたのライフスタイルを彩る厳選アイテムを取り揃えました。シンプルでありながらも個性を引き立てる商品をお届けします。</p>
-                <a href="#" className={styles.hero__button}>商品を見る</a>
+                <Link href="/products" className={styles.hero__button}>商品を見る</Link>
             </div>
             <div className={styles.hero__imageWrapper}>
                 <Image
-                  src="/images/hero-image.jpg"
-                  alt="ヒーロー画像"
-                  fill
-                  style={{objectFit: "cover"}}
-                  />
+                    src="/images/hero-image.jpg"
+                    alt="ヒーロー画像"
+                    fill
+                    style={{objectFit: "cover"}}
+                    />
             </div>
         </div>
     </section>
@@ -52,9 +53,9 @@ export default function Home() {
             <div className={styles.product__grid}>
                 <div className={styles.product__card}>
                     <div className={styles.product__imageWrapper}>
-                      <Image src="/images/denim-jacket.jpg" alt="デニムジャケット" 
-                        fill
-                        style={{objectFit: "cover"}}/>
+                        <Image src="/images/denim-jacket.jpg" alt="デニムジャケット" 
+                            fill
+                            style={{objectFit: "cover"}}/>
                     </div>
                     <div className={styles.product__text}>
                         <h3 className={styles.product__name}>デニムジャケット</h3>
@@ -67,10 +68,10 @@ export default function Home() {
                 </div>
                 <div className={styles.product__card}>
                     <div className={styles.product__imageWrapper}>
-                    <Image src="/images/leather-watch.jpg" alt="レザーウォッチ"
-                      fill
-                      style={{objectFit: "cover"}}
-                    />
+                        <Image src="/images/leather-watch.jpg" alt="レザーウォッチ"
+                            fill
+                            style={{objectFit: "cover"}}
+                            />
                     </div>
                     <div className={styles.product__text}>
                         <h3 className={styles.product__name}>レザーウォッチ</h3>
@@ -84,9 +85,9 @@ export default function Home() {
                 <div className={styles.product__card}>
                     <div className={styles.product__imageWrapper}>
                         <Image src="/images/wireless-earbuds.jpg" alt="ワイヤレスイヤホン"
-                          fill
-                          style={{objectFit: "cover"}}
-                        />
+                            fill
+                            style={{objectFit: "cover"}}
+                            />
                     </div>
                     <div className={styles.product__text}>
                         <h3 className={styles.product__name}>ワイヤレスイヤホン</h3>
@@ -99,10 +100,10 @@ export default function Home() {
                 </div>
                 <div className={styles.product__card}>
                     <div className={styles.product__imageWrapper}>
-                      <Image src="/images/sunglasses.jpg" alt="サングラス"
-                        fill
-                        style={{objectFit: "cover"}}
-                      />
+                        <Image src="/images/sunglasses.jpg" alt="サングラス"
+                            fill
+                            style={{objectFit: "cover"}}
+                        />
                     </div>
                     <div className={styles.product__text}>
                         <h3 className={styles.product__name}>サングラス</h3>
@@ -115,7 +116,7 @@ export default function Home() {
                 </div>
             </div>
             <div className={styles.product__viewAll}>
-                <a href="#" className={styles.product__viewAllButton}>すべての商品を見る</a>
+                <Link href="/products" className={styles.product__viewAllButton}>すべての商品を見る</Link>
             </div>
         </div>
     </section>
@@ -144,5 +145,5 @@ export default function Home() {
     </section>
     
     </>
-  );
+    );
 }

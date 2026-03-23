@@ -1,0 +1,67 @@
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+}
+
+.productText {
+    padding: 15px;
+    display: flex;
+    row-gap: 5px;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 0;
+    color: #333;
+    margin: 0;
+}
+
+.category {
+    font-size: 0.8rem;
+    color: #777;
+    margin: 0;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+}
+
+
+.salesInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stock {
+    background-color: aquamarine;
+    color: teal;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    padding: 3px 6px;
+}

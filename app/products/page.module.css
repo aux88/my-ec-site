@@ -1,0 +1,21 @@
+.background {
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 100%;
+    max-width: 1112px;
+    margin: 0px auto;
+    padding: 32px 16px;
+    overflow: hidden;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.item {
+    list-style: none;
+}
