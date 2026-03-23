@@ -2,7 +2,7 @@ import { FaStar } from 'react-icons/fa';
 import styles from './Rating.module.css';
 
 interface RatingProps {
-    rating: number;
+    rating: number | undefined;
     starsNumber?: number;
     size: number;
     clickable?: boolean;
@@ -29,11 +29,13 @@ const StarRating = ({ rating = 0, starsNumber = 5, size = 24, clickable = false,
      * 
      * @param {number} value - クリックされた星の値
      */
+    /*
     const handleClick = (value :number) => {
         if (clickable && onRate) {
             onRate(value);
         }
     };
+    */
 
     /**
      * 星のレンダリングを行う関数。
@@ -52,7 +54,7 @@ const StarRating = ({ rating = 0, starsNumber = 5, size = 24, clickable = false,
                     key={i}
                     color="#ffc107"
                     size={size}
-                    onClick={() => clickable && handleClick(i + 1)}
+//                    onClick={() => clickable && handleClick(i + 1)}
                 />
             );
         }
@@ -69,7 +71,7 @@ const StarRating = ({ rating = 0, starsNumber = 5, size = 24, clickable = false,
                             position: 'absolute',
                             zIndex: 1,
                         }}
-                        onClick={() => clickable && handleClick(fullStars + 1)}
+//                        onClick={() => clickable && handleClick(fullStars + 1)}
                     />
                     <FaStar
                         color="#e4e5e9"
@@ -86,7 +88,7 @@ const StarRating = ({ rating = 0, starsNumber = 5, size = 24, clickable = false,
                     key={fullStars + i + 1}
                     color="#e4e5e9"
                     size={size}
-                    onClick={() => clickable && handleClick(fullStars + i + 1)}
+//                    onClick={() => clickable && handleClick(fullStars + i + 1)}
                 />
             );
         }

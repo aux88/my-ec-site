@@ -59,9 +59,20 @@
 }
 
 .stock {
+    font-size: 0.8rem;
+    border-radius: 6px;
+    padding: 3px 6px;
+}
+
+.inStock {
     background-color: aquamarine;
     color: teal;
     font-size: 0.8rem;
     border-radius: 6px;
     padding: 3px 6px;
+}
+
+.outOfStock {
+    background-color: lightgray;
+    color: gray;
 }
