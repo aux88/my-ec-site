@@ -10,6 +10,7 @@ export const mockProducts: Product[] = [
         rate: 4.5,
         description: "商品の説明が入ります。",
         imageUrl: "/images/denim-jacket.jpg",
+        publishedAt: "2026-03-24T09:00:00Z",
     },
     {
         id: "2",
@@ -20,6 +21,7 @@ export const mockProducts: Product[] = [
         rate: 4.2,
         description: "商品の説明が入ります。",
         imageUrl: "/images/leather-watch.jpg",
+        publishedAt: "2026-03-23T10:30:00Z",
     },
     {
         id: "3",
@@ -30,6 +32,7 @@ export const mockProducts: Product[] = [
         rate: 4.8,
         description: "商品の説明が入ります。",
         imageUrl: "/images/wireless-earbuds.jpg",
+        publishedAt: "2026-03-22T12:00:00Z",
     },
     {
         id: "4",
@@ -40,6 +43,7 @@ export const mockProducts: Product[] = [
         rate: 4.0,
         description: "商品の説明が入ります。",
         imageUrl: "/images/sunglasses.jpg",
+        publishedAt: "2026-03-21T15:45:00Z",
     },
     {
         id: "5",
@@ -50,6 +54,7 @@ export const mockProducts: Product[] = [
         rate: 4.3,
         description: "商品の説明が入ります。",
         imageUrl: "/images/sneakers.jpg",
+        publishedAt: "2026-03-20T08:15:00Z",
     },
     {
         id: "6",
@@ -60,5 +65,6 @@ export const mockProducts: Product[] = [
         rate: 4.6,
         description: "健康管理機能付きのスマートウォッチ。",
         imageUrl: "/images/smart-watch.jpg",
+        publishedAt: "2026-03-19T14:20:00Z",
     },
 ];

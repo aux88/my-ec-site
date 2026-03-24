@@ -34,7 +34,6 @@ export default function ProductsPage() {
                 <ul className={styles.grid}>
                     {products.map((item) => 
                         {
-                            console.log("category=" + category);
                             if(category==="all"){
                                 return <li className={styles.item} key={item.id}>
                                     <Link href={`/products/${item.id}`}><ProductCard product={item}/></Link></li>

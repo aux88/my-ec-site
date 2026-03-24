@@ -8,4 +8,5 @@ export interface Product  {
     stock: number;
     description: string;
     imageUrl: string;
+    publishedAt: string;
 }

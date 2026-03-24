@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "./ProductCard.module.css";
 import { Product } from "../../types/Product";
 // import { Product } from "@/types";
-import { useState } from "react";
 import StarRating from '@/app/components/Rating/Rating';
 import {CATEGORY_LABELS} from  "@/app/types/Category";
 
@@ -12,14 +11,9 @@ type Props = {
 };
 
 export default function ProductCard({ product }: Props) {
-    const [isHover, setIsHover] = useState(false);
 
     return (
-        <div
-        className={styles.card}
-        onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}
-        >
+        <div className={styles.card}>
             <div className={styles.imageWrapper}>
                 <Image
                         src={product.imageUrl}

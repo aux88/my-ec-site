@@ -4,6 +4,7 @@ import { FaCheck } from "react-icons/fa6";
 import { FaRegClock } from "react-icons/fa";
 import { CgShoppingCart } from "react-icons/cg";
 import Link from 'next/link';
+import { NewItemCard } from "./components/NewItemCard/NewItemCard";
 export default function Home() {
     return (
     <>
@@ -21,6 +22,7 @@ export default function Home() {
                         alt="ヒーロー画像"
                         fill
                         style={{objectFit: "cover"}}
+                        priority
                         />
                 </div>
             </div>
@@ -49,71 +51,7 @@ export default function Home() {
         <section className={styles.product}>
             <div className={styles.product__container}>
                 <h2 className={styles.sectionTitle}>新着商品</h2>
-                <div className={styles.product__grid}>
-                    <div className={styles.product__card}>
-                        <div className={styles.product__imageWrapper}>
-                            <Image src="/images/denim-jacket.jpg" alt="デニムジャケット" 
-                                fill
-                                style={{objectFit: "cover"}}/>
-                        </div>
-                        <div className={styles.product__text}>
-                            <h3 className={styles.product__name}>デニムジャケット</h3>
-                            <p className={styles.product__category}>衣類</p>
-                            <div className={styles.product__details}>
-                                <p className={styles.product__price}>¥12,800</p>
-                                <a href="#" className={styles.product__link}>詳細を見る</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.product__card}>
-                        <div className={styles.product__imageWrapper}>
-                            <Image src="/images/leather-watch.jpg" alt="レザーウォッチ"
-                                fill
-                                style={{objectFit: "cover"}}
-                                />
-                        </div>
-                        <div className={styles.product__text}>
-                            <h3 className={styles.product__name}>レザーウォッチ</h3>
-                            <p className={styles.product__category}>アクセサリー</p>
-                            <div className={styles.product__details}>
-                                <p className={styles.product__price}>¥8,500</p>
-                                <a href="#" className={styles.product__link}>詳細を見る</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.product__card}>
-                        <div className={styles.product__imageWrapper}>
-                            <Image src="/images/wireless-earbuds.jpg" alt="ワイヤレスイヤホン"
-                                fill
-                                style={{objectFit: "cover"}}
-                                />
-                        </div>
-                        <div className={styles.product__text}>
-                            <h3 className={styles.product__name}>ワイヤレスイヤホン</h3>
-                            <p className={styles.product__category}>ガジェット</p>
-                            <div className={styles.product__details}>
-                                <p className={styles.product__price}>¥15,800</p>
-                                <a href="#" className={styles.product__link}>詳細を見る</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.product__card}>
-                        <div className={styles.product__imageWrapper}>
-                            <Image src="/images/sunglasses.jpg" alt="サングラス"
-                                fill
-                                style={{objectFit: "cover"}}
-                            />
-                        </div>
-                        <div className={styles.product__text}>
-                            <h3 className={styles.product__name}>サングラス</h3>
-                            <p className={styles.product__category}>アクセサリー</p>
-                            <div className={styles.product__details}>
-                                <p className={styles.product__price}>¥6,800</p>
-                                <a href="#" className={styles.product__link}>詳細を見る</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <NewItemCard numOfPreview={4}/>
                 <div className={styles.product__viewAll}>
                     <Link href="/products" className={styles.product__viewAllButton}>すべての商品を見る</Link>
                 </div>
