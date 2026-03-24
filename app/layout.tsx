@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "./components/layouts/header/Header";
 import { Footer } from "./components/layouts/footer/Footer";
 import { CartProvider } from "./context/CartContext";
+import { FilterProvider } from "./context/FilterContext";
 
 export const metadata: Metadata = {
   title: "React EC",
@@ -18,9 +19,11 @@ export default function RootLayout({
     <html lang="ja">
       <body>
         <CartProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <FilterProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </FilterProvider>
         </CartProvider>
       </body>
     </html>

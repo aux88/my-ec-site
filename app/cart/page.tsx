@@ -37,51 +37,47 @@ export default function CartPage() {
                     <Image
                         src={item.product.imageUrl}
                         alt={item.product.title}
-                        width={120}
-                        height={120}
+                        width={100}
+                        height={100}
                         className={styles.itemImage}
                     />
                     </div>
                     <div className={styles.itemInfo}>
-                    <div className={styles.row1}>
-                        <h2 className={styles.itemTitle}>{item.product.title}</h2>
-                        <span className={styles.itemTotalPrice}>
-                        ¥{(item.product.price * item.quantity).toLocaleString()}
-                        </span>
-                    </div>
-                    <div className={styles.row2}>
-                        <span className={styles.itemUnitPrice}>
-                        ¥{item.product.price.toLocaleString()}
-                        </span>
-                    </div>
-                    <div className={styles.row3}>
-                        <span className={styles.stock}>
-                        残り{item.product.stock}点
-                        </span>
-                    </div>
-                    <div className={styles.row4}>
-                        <div className={styles.quantityControl}>
-                        <button
-                            className={styles.quantityBtn}
-                            onClick={() => decrementItem(item.product.id)}
-                        >
-                            -
-                        </button>
-                        <span className={styles.quantity}>{item.quantity}</span>
-                        <button
-                            className={styles.quantityBtn}
-                            onClick={() => incrementItem(item.product.id)}
-                        >
-                            +
-                        </button>
+                        <div className={styles.row1}>
+                            <h2 className={styles.itemTitle}>{item.product.title}</h2>
+                            <span className={styles.itemTotalPrice}>
+                            ¥{(item.product.price * item.quantity).toLocaleString()}
+                            </span>
                         </div>
-                        <button
-                        className={styles.deleteBtn}
-                        onClick={() => removeItem(item.product.id)}
-                        >
-                        削除
-                        </button>
-                    </div>
+                        <div className={styles.row2}>
+                            <span className={styles.itemUnitPrice}>
+                            ¥{item.product.price.toLocaleString()}
+                            </span>
+                        </div>
+                        <div className={styles.row3}>
+                            <span className={styles.stock}>
+                            残り{item.product.stock}点
+                            </span>
+                        </div>
+                        <div className={styles.row4}>
+                            <div className={styles.quantityControl}>
+                            <button
+                                className={styles.quantityBtn}
+                                onClick={() => decrementItem(item.product.id)}
+                            >-</button>
+                            <span className={styles.quantity}>{item.quantity}</span>
+                            <button
+                                className={styles.quantityBtn}
+                                onClick={() => incrementItem(item.product.id)}
+                            >+</button>
+                            </div>
+                            <button
+                            className={styles.deleteBtn}
+                            onClick={() => removeItem(item.product.id)}
+                            >
+                            削除
+                            </button>
+                        </div>
                     </div>
                 </div>
                 ))

@@ -10,7 +10,6 @@ type Props = {
 };
 
 export const ProductDetail = ({ product }: Props) =>{
-
     return (
         <div className={styles.container}>
         <div className={styles.productDetail}>
@@ -37,7 +36,6 @@ export const ProductDetail = ({ product }: Props) =>{
                 {product.stock > 0 ? `在庫あり` : "在庫なし"}
                 </span>
             </div>
-
             <AddToCartButton product={product} />
             <p className={styles.backToProducts}>
                 <Link href="/products" className={styles.backLink}>

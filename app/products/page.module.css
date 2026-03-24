@@ -19,3 +19,14 @@
 .item {
     list-style: none;
 }
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 30px 0;
+}

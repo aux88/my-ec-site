@@ -4,7 +4,7 @@ export const mockProducts: Product[] = [
     {
         id: "1",
         title: "デニムジャケット",
-        category: "衣類",
+        category: "clothes",
         price: 12800,
         stock: 10,
         rate: 4.5,
@@ -14,7 +14,7 @@ export const mockProducts: Product[] = [
     {
         id: "2",
         title: "レザーウォッチ",
-        category: "アクセサリー",
+        category: "gadget",
         price: 8500,
         stock: 10,
         rate: 4.2,
@@ -24,7 +24,7 @@ export const mockProducts: Product[] = [
     {
         id: "3",
         title: "ワイヤレスイヤホン",
-        category: "ガジェット",
+        category: "gadget",
         price: 15800,
         stock: 10,
         rate: 4.8,
@@ -34,7 +34,7 @@ export const mockProducts: Product[] = [
     {
         id: "4",
         title: "サングラス",
-        category: "アクセサリー",
+        category: "accessories",
         price: 6800,
         stock: 10,
         rate: 4.0,
@@ -44,7 +44,7 @@ export const mockProducts: Product[] = [
     {
         id: "5",
         title: "スニーカー",
-        category: "衣類",
+        category: "clothes",
         price: 9800,
         stock: 0,
         rate: 4.3,
@@ -54,7 +54,7 @@ export const mockProducts: Product[] = [
     {
         id: "6",
         title: "スマートウォッチ",
-        category: "ガジェット",
+        category: "gadget",
         price: 19800,
         stock: 10,
         rate: 4.6,

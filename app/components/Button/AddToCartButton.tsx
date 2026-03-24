@@ -13,9 +13,7 @@ export const AddToCartButton = ({ product }: Props) => {
     const context = useContext(CartContext)
 
     const handleClick = () => {
-        console.log("カート追加:", product);
         context?.addItem(product);
-        console.log("カート追加:", context?.cartItems.length);
     };
 
     return (

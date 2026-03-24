@@ -5,7 +5,7 @@ import { Product } from "../../types/Product";
 // import { Product } from "@/types";
 import { useState } from "react";
 import StarRating from '@/app/components/Rating/Rating';
-
+import {CATEGORY_LABELS} from  "@/app/types/Category";
 
 type Props = {
     product: Product;
@@ -30,10 +30,10 @@ export default function ProductCard({ product }: Props) {
             </div>
             <div className={styles.productText}>
                 <h2 className={styles.name}>{product.title}</h2>
-                <p className={styles.category}>{product.category}</p>
+                <p className={styles.category}>{CATEGORY_LABELS[product.category]}</p>
                 <StarRating rating={product.rate} size={12} sumreview={1234}/>
                 <div className={styles.salesInfo}>
-                    <p className={styles.price}>¥{product.price}</p>
+                    <p className={styles.price}>¥{product.price.toLocaleString()}</p>
                     <p className={`${styles.stock} ${product.stock > 0 ? styles.inStock : styles.outOfStock}`}>
                         {product.stock > 0 ? "在庫あり" : "在庫なし"}</p>
                 </div>

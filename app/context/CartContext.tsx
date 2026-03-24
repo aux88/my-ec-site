@@ -22,15 +22,22 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     const addItem = (product: Product) => {
         setCartItems((prev) => {
-        const existing = prev.find((item) => item.product.id === product.id);
-        if (existing) {
-            return prev.map((item) =>
-            item.product.id === product.id
-                ? { ...item, quantity: item.quantity + 1 }
-                : item
-            );
-        }
-        return [...prev, { product, quantity: 1 }];
+            const existing = prev.find((item) => item.product.id === product.id);
+            if (existing) {
+                if (existing.quantity >= existing.product.stock) { 
+                    return prev;
+                }else{
+                    return prev.map((item) =>
+                    item.product.id === product.id
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                    );
+                }
+            }
+            if (product.stock <= 0){
+                return prev;
+            }
+            return [...prev, { product, quantity: 1 }];
         });
     };
 
@@ -44,7 +51,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         setCartItems((prev) =>
             prev.map((item) =>
                 item.product.id === productId
-                    ? { ...item, quantity: item.quantity + 1 }
+                    ? {...item, quantity: item.quantity < item.product.stock
+                        ? item.quantity + 1 : item.quantity }
                     : item
             )
         );
@@ -61,7 +69,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     };
 
     return (
-        <CartContext.Provider value={{ cartItems, addItem, removeItem, incrementItem, decrementItem }}>
+        <CartContext.Provider value={{ cartItems, addItem, removeItem, incrementItem, decrementItem}}>
         {children}
         </CartContext.Provider>
     );
