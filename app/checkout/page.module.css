@@ -1,0 +1,105 @@
+.container {
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.title {
+    max-width: 1080px;
+    margin: 0 auto 24px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.checkoutContent {
+    display: flex;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.formSection {
+    flex: 1;
+    background-color: #fff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.confirmSection {
+    flex: 1;
+    background-color: #fff;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sectionTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+.dividerGray {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 8px 0;
+}
+
+.dividerBlack {
+    border: none;
+    border-top: 1px solid #000;
+    margin: 8px 0;
+}
+
+.totalRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.emptyMessage {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+@media (max-width: 767px) {
+    .cartContent {
+        flex-direction: column;
+    }
+
+    .itemsSection {
+        width: 100%;
+    }
+
+    .summarySection {
+        width: 100%;
+    }
+}
+
+.summaryByProduct {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.amountByProduct{
+    font-size: 0.8rem;
+    color:#666;
+}

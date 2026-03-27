@@ -4,6 +4,7 @@ import { useContext } from "react";
 import Image from "next/image";
 import CartContext from "@/app/context/CartContext";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function CartPage() {
     const context = useContext(CartContext);
@@ -106,9 +107,9 @@ export default function CartPage() {
                 <span>¥{totalAmount.toLocaleString()}</span>
             </div>
             
-            <button className={styles.checkoutBtn}>
+            <Link href="/checkout" className={styles.checkoutBtn}>
                 レジに進む
-            </button>
+            </Link>
             </div>
         </div>
         </div>

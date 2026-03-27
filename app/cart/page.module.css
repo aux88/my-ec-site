@@ -171,6 +171,8 @@
 }
 
 .checkoutBtn {
+    display: block;
+    text-align: center;
     width: 100%;
     padding: 16px;
     background-color: #4f3af4;

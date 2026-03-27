@@ -4,6 +4,7 @@ import styles from "./ProductDetail.module.css";
 import { Product } from "@/app/types/Product";
 import StarRating from "@/app/components/Rating/Rating";
 import { AddToCartButton } from "../Button/AddToCartButton";
+import { CATEGORY_LABELS } from "@/app/types/Category";
 
 type Props = {
     product: Product;
@@ -27,7 +28,7 @@ export const ProductDetail = ({ product }: Props) =>{
             <div className={styles.infoSection}>
             <h1 className={styles.title}>{product.title}</h1>
             <StarRating rating={product.rate} size={20} sumreview={123} />
-            <span className={styles.category}>{product.category}</span>
+            <span className={styles.category}>{CATEGORY_LABELS[product.category]}</span>
             <p className={styles.description}>{product.description}</p>
             
             <div className={styles.priceStockRow}>
