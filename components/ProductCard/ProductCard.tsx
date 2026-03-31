@@ -3,8 +3,8 @@ import Image from "next/image";
 import styles from "./ProductCard.module.css";
 import { Product } from "../../types/Product";
 // import { Product } from "@/types";
-import StarRating from '@/app/components/Rating/Rating';
-import {CATEGORY_LABELS} from  "@/app/types/Category";
+import StarRating from '@/components/Rating/Rating';
+import {CATEGORY_LABELS} from  "@/types/Category";
 
 type Props = {
     product: Product;

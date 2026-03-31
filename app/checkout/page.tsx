@@ -1,9 +1,9 @@
 "use client";
 
 import { useContext } from "react";
-import CartContext from "@/app/context/CartContext";
+import CartContext from "@/context/CartContext";
 import styles from "./page.module.css";
-import { CustomerInfo } from "../components/CustomerInfo/CustomerInfo";
+import { CustomerInfo } from "@/components/CustomerInfo/CustomerInfo";
 
 export default function CartPage() {
     const context = useContext(CartContext);

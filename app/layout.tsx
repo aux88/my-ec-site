@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Header } from "./components/layouts/header/Header";
-import { Footer } from "./components/layouts/footer/Footer";
-import { CartProvider } from "./context/CartContext";
-import { FilterProvider } from "./context/FilterContext";
+import { Header } from "@/components/layouts/header/Header";
+import { Footer } from "@/components/layouts/footer/Footer";
+import { CartProvider } from "@/context/CartContext";
+import { FilterProvider } from "@/context/FilterContext";
 
 export const metadata: Metadata = {
   title: "React EC",

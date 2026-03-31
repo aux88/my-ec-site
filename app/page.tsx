@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa6";
 import { FaRegClock } from "react-icons/fa";
 import { CgShoppingCart } from "react-icons/cg";
 import Link from 'next/link';
-import { NewItemCard } from "./components/NewItemCard/NewItemCard";
+import { NewItemCard } from "@/components/NewItemCard/NewItemCard";
 export default function Home() {
     return (
     <>

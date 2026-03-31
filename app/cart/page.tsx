@@ -2,7 +2,7 @@
 
 import { useContext } from "react";
 import Image from "next/image";
-import CartContext from "@/app/context/CartContext";
+import CartContext from "@/context/CartContext";
 import styles from "./page.module.css";
 import Link from "next/link";
 

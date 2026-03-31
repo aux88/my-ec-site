@@ -1,9 +1,9 @@
 "use client"
 import { useContext, useState } from "react";
 import styles from "./CategoryFilter.module.css";
-import {CATEGORY_LABELS} from "@/app/types/Category"
-import { Category } from "@/app/types/Category";
-import FilterContext from "@/app/context/FilterContext";
+import {CATEGORY_LABELS} from "@/types/Category"
+import { Category } from "@/types/Category";
+import FilterContext from "@/context/FilterContext";
 
 export const CategoryFilter = () => {
 

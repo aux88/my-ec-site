@@ -1,9 +1,9 @@
-import { Product } from "@/app/types/Product";
+import { Product } from "@/types/Product";
 import styles from "./NewItemCard.module.css"
 import Image from "next/image";
-import { mockProducts } from "@/app/lib/mock/products";
+import { mockProducts } from "@/lib/mock/products";
 import Link from "next/link";
-import { CATEGORY_LABELS } from "@/app/types/Category"
+import { CATEGORY_LABELS } from "@/types/Category"
 
 interface NewItemCardProps {
     numOfPreview: number;

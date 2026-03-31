@@ -1,8 +1,8 @@
 "use client";
 import { useContext } from "react";
-import CartContext from "@/app/context/CartContext";
+import CartContext from "@/context/CartContext";
 import styles from "./Button.module.css";
-import { Product } from "@/app/types/Product";
+import { Product } from "@/types/Product";
 
 type Props = {
     product: Product;

@@ -1,11 +1,11 @@
 'use client'
-import ProductCard from "@/app/components/ProductCard/ProductCard";
+import ProductCard from "@/components/ProductCard/ProductCard";
 import Link from "next/link";
-import { Product } from "../types/Product";
+import { Product } from "@/types/Product";
 import styles from "./page.module.css";
-import { mockProducts } from "@/app/lib/mock/products";
-import { CategoryFilter } from "../components/Filter/CategoryFilter";
-import FilterContext from "@/app/context/FilterContext";
+import { mockProducts } from "@/lib/mock/products";
+import { CategoryFilter } from "@/components/Filter/CategoryFilter";
+import FilterContext from "@/context/FilterContext";
 import { useContext } from "react";
 
 export default function ProductsPage() {

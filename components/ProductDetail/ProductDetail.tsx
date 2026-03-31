@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./ProductDetail.module.css";
-import { Product } from "@/app/types/Product";
-import StarRating from "@/app/components/Rating/Rating";
+import { Product } from "@/types/Product";
+import StarRating from "@/components/Rating/Rating";
 import { AddToCartButton } from "../Button/AddToCartButton";
-import { CATEGORY_LABELS } from "@/app/types/Category";
+import { CATEGORY_LABELS } from "@/types/Category";
 
 type Props = {
     product: Product;

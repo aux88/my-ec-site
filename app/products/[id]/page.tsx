@@ -1,7 +1,7 @@
-import { Product } from "@/app/types/Product"
-import { mockProducts } from "@/app/lib/mock/products";
+import { Product } from "@/types/Product"
+import { mockProducts } from "@/lib/mock/products";
 import { notFound } from "next/navigation";
-import { ProductDetail } from "@/app/components/ProductDetail/ProductDetail"
+import { ProductDetail } from "@/components/ProductDetail/ProductDetail"
 
 type Params = {
     id : string;

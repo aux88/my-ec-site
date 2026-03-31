@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useState, ReactNode } from "react";
-import { Category } from "@/app/types/Category";
+import { Category } from "@/types/Category";
 
 type FilterContextValue = {
     category: Category;
