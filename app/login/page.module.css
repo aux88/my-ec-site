@@ -74,7 +74,12 @@
     transition: background-color 0.2s;
 }
 
-.loginBtn:hover {
+.loginBtn:disabled {
+    background-color: #c7c7c7;
+    cursor: not-allowed;
+}
+
+.loginBtn:not(:disabled):hover {
     background-color: #3e2ecf;
 }
 

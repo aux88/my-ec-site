@@ -1,15 +1,24 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
+import { useForm } from "react-hook-form"
+type FormData = {
+    email: string;
+    password: string;
+}
 
 export default function LoginPage() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
 
-    const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const { handleSubmit, register, formState } = useForm<FormData>({
+        mode: "onChange",
+        defaultValues: {
+            email: "",
+            password: "",
+        },
+    });
+
+    const onSubmit = ({ email, password }: FormData) => {
         // TODO: 認証API連携に置き換え
         console.log({ email, password });
     };
@@ -19,31 +28,27 @@ export default function LoginPage() {
             <div className={styles.card}>
                 <h1 className={styles.title}>ログイン</h1>
                 <p className={styles.sinupText}>または <Link href="/signup" className={styles.sinupLink}>新規登録</Link></p>
-                <form className={styles.form} onSubmit={onSubmit}>
+                <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                     <div className={styles.field}>
                         <input
                             className={styles.input}
                             id="login-email"
-                            name="email"
                             type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            {...register("email",{ required: "入力してください"})}
                             autoComplete="email"
                             placeholder="メールアドレス"
                         />
                         <input
                             className={styles.input}
                             id="login-password"
-                            name="password"
                             type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            {...register("password",{ required: true})}
                             autoComplete="current-password"
                             placeholder="パスワード"
                         />
                     </div>
 
-                    <button type="submit" className={styles.loginBtn}>
+                    <button type="submit" className={styles.loginBtn} disabled={!formState.isValid}>
                         ログイン
                     </button>
                 </form>
