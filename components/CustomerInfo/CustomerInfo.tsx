@@ -2,6 +2,7 @@
 
 import styles from "./CustomerInfo.module.css";
 import { useForm, Controller } from "react-hook-form"
+import { useRouter } from 'next/navigation'
 
 type FormData = {
     name: string;
@@ -11,6 +12,7 @@ type FormData = {
 }
 
 export const CustomerInfo = () => {
+    const router = useRouter();
 
     const { handleSubmit, control, formState } = useForm<FormData>({
         mode: "onChange",
@@ -25,6 +27,7 @@ export const CustomerInfo = () => {
     const onSubmit = (data: FormData) => {
         // 実際はAPI実行？ボタンが押されたらとりあえず入力内容をログに出す
         console.log(data);
+        router.push("/thanks");
     };
 
     return (
