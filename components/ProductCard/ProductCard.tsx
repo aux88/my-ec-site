@@ -16,7 +16,7 @@ export default function ProductCard({ product }: Props) {
         <div className={styles.card}>
             <div className={styles.imageWrapper}>
                 <Image
-                        src={product.imageUrl}
+                        src={product.imageUrls[0]}
                         alt=""
                         fill
                         style={{objectFit: "cover"}}

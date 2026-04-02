@@ -5,7 +5,6 @@ import { FaRegClock } from "react-icons/fa";
 import { CgShoppingCart } from "react-icons/cg";
 import Link from 'next/link';
 import { NewItemCard } from "@/components/NewItemCard/NewItemCard";
-import { CategoryFilter } from "@/components/Filter/CategoryFilter";
 import CategoryCard from "@/components/CategoryCard/CategoryCard";
 import { ViewAllProductButton } from "@/components/Button/ViewAllProductButton";
 export default function Home() {

@@ -7,6 +7,6 @@ export interface Product  {
     rate?: number;
     stock: number;
     description: string;
-    imageUrl: string;
+    imageUrls: string[];
     publishedAt: string;
 }

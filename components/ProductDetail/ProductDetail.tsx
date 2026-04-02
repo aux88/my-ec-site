@@ -1,29 +1,23 @@
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./ProductDetail.module.css";
 import { Product } from "@/types/Product";
 import StarRating from "@/components/Rating/Rating";
 import { AddToCartButton } from "../Button/AddToCartButton";
 import { CATEGORY_LABELS } from "@/types/Category";
+import { ProductImageCarousel } from "./ProductImageCarousel";
 
 type Props = {
     product: Product;
 };
 
 export const ProductDetail = ({ product }: Props) =>{
+    const images = product.imageUrls;
+
     return (
         <div className={styles.container}>
         <div className={styles.productDetail}>
             <div className={styles.imageSection}>
-            <figure className={styles.imageWrapper}>
-                <Image
-                    src={product.imageUrl}
-                    alt={product.title}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    priority
-                />
-            </figure>
+            <ProductImageCarousel images={images} title={product.title} />
             </div>
             <div className={styles.infoSection}>
             <h1 className={styles.title}>{product.title}</h1>
