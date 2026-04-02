@@ -79,64 +79,17 @@
   padding: 3rem 0;
 }
 
+.category__container {
+  width: 100%;
+  max-width: 1112px;
+  margin: 0px auto;
+}
+
 .category__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-}
-
-.category__item {
-  position: relative;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border-radius: 8px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  padding: 20px;
-}
-
-.category__item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.01) 50%);
-  z-index: 0;
-}
-
-.category__itemApparel {
-  background-image: url(../public/images/category-clothing.jpg);
-}
-
-.category__itemAccessories {
-  background-image: url(../public/images/category-accessories.jpg);
-}
-
-.category__itemGadgets {
-  background-image: url(../public/images/category-gadgets.jpg);
-}
-
-.category__name {
-  z-index: 1;
-  position: relative;
-  margin: 0;
-}
-
-.category__description {
-  color: #fff;
-  z-index: 1;
-  font-size: 1rem;
-  font-weight: 400;
-  margin: 0;
+  margin: 0 1rem;
 }
 
 .product {
@@ -152,18 +105,9 @@
   padding-bottom: 4rem;
 }
 
-.product__viewAll {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.product__viewAllButton {
-  padding: 16px 30px;
-  border: solid 1px #4f3af4;
-  color: #4f3af4;
-  background: none;
-  text-decoration: none;
-  border-radius: 5px;
+.product__viewAll{
+  display: flex;
+  justify-content: center;
 }
 
 .service {

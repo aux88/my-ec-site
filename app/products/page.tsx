@@ -7,6 +7,7 @@ import { mockProducts } from "@/lib/mock/products";
 import { CategoryFilter } from "@/components/Filter/CategoryFilter";
 import FilterContext from "@/context/FilterContext";
 import { useContext } from "react";
+import { CATEGORY_LABELS } from "@/types/Category";
 
 export default function ProductsPage() {
 
@@ -28,8 +29,8 @@ export default function ProductsPage() {
     return (
         <div className={styles.background}>
             <div className={styles.container}>
-                <h2>すべての商品</h2>
-                <p>{products.length}件の商品が見つかりました</p>
+                <h2>{category === "all" ? "すべての商品" : CATEGORY_LABELS[category]}</h2>
+                <p>{category === "all" ? products.length : products.filter((item) => item.category === category).length}件の商品が見つかりました</p>
                 <div className={styles.filter}><CategoryFilter/></div>
                 <ul className={styles.grid}>
                     {products.map((item) => 

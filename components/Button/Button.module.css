@@ -14,3 +14,14 @@
 .addToCartButton:hover {
     background-color: #3e2ecf;
 }
+
+
+.product__viewAllButton {
+    padding: 16px 30px;
+    border: solid 1px #4f3af4;
+    color: #4f3af4;
+    background: none;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  

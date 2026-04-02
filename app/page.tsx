@@ -5,6 +5,9 @@ import { FaRegClock } from "react-icons/fa";
 import { CgShoppingCart } from "react-icons/cg";
 import Link from 'next/link';
 import { NewItemCard } from "@/components/NewItemCard/NewItemCard";
+import { CategoryFilter } from "@/components/Filter/CategoryFilter";
+import CategoryCard from "@/components/CategoryCard/CategoryCard";
+import { ViewAllProductButton } from "@/components/Button/ViewAllProductButton";
 export default function Home() {
     return (
     <>
@@ -29,21 +32,24 @@ export default function Home() {
         </section>
 
         <section className={styles.category}>
-            <div className={styles.container}>
+            <div className={styles.category__container}>
                 <h2 className={styles.sectionTitle}>カテゴリから探す</h2>
                 <div className={styles.category__grid}>
-                    <div className={`${styles.category__item} ${styles.category__itemApparel}`}>
-                        <p className={styles.category__name}>衣類</p>
-                        <p className={styles.category__description}>トレンドコレクション</p>
-                    </div>
-                    <div className={`${styles.category__item} ${styles.category__itemAccessories}`}>
-                        <p className={styles.category__name}>アクセサリー</p>
-                        <p className={styles.category__description}>トレンドコレクション</p>
-                    </div>
-                    <div className={`${styles.category__item} ${styles.category__itemGadgets}`}>
-                        <p className={styles.category__name}>ガジェット</p>
-                        <p className={styles.category__description}>トレンドコレクション</p>
-                    </div>
+                    <CategoryCard 
+                        category="clothes"
+                        backgroundImageUrl="/images/category-clothing.jpg"
+                        description="トレンドコレクション"
+                    />
+                    <CategoryCard 
+                        category="accessories"
+                        backgroundImageUrl="/images/category-accessories.jpg"
+                        description="トレンドコレクション"
+                    />
+                    <CategoryCard 
+                        category="gadget"
+                        backgroundImageUrl="/images/category-gadgets.jpg"
+                        description="トレンドコレクション"
+                    />
                 </div>
             </div>
         </section>
@@ -53,7 +59,7 @@ export default function Home() {
                 <h2 className={styles.sectionTitle}>新着商品</h2>
                 <NewItemCard numOfPreview={4}/>
                 <div className={styles.product__viewAll}>
-                    <Link href="/products" className={styles.product__viewAllButton}>すべての商品を見る</Link>
+                    <ViewAllProductButton />
                 </div>
             </div>
         </section>
