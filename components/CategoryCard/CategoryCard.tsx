@@ -1,7 +1,7 @@
 "use client"
 import { useContext } from "react";
 import styles from "./CategoryCard.module.css";
-import { Category, CATEGORY_LABELS } from "@/types/Category";
+import { Category, CATEGORIES } from "@/types/Category";
 import FilterContext from "@/context/FilterContext";
 import Link from "next/link";
 import { setupFsCheck } from "next/dist/server/lib/router-utils/filesystem";
@@ -23,7 +23,7 @@ export default function CategoryCard({category, backgroundImageUrl, description 
     return (
         <Link href={"/products"} onClick={()=>selectCategory(category)}>
             <div className={styles.category__item} style={{backgroundImage: `url(${backgroundImageUrl})`}}>
-                <p className={styles.category__name}>{CATEGORY_LABELS[category]}</p>
+                <p className={styles.category__name}>{CATEGORIES[category]}</p>
                 <p className={styles.category__description}>{description}</p>
             </div>
         </Link>

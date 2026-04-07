@@ -4,6 +4,7 @@ import { Product } from "@/types/Product";
 import StarRating from "@/components/Rating/Rating";
 import { AddToCartButton } from "../Button/AddToCartButton";
 import { ProductImageCarousel } from "./ProductImageCarousel";
+import { CATEGORIES } from "@/types/Category";
 
 type Props = {
     product: Product;
@@ -21,7 +22,7 @@ export const ProductDetail = ({ product }: Props) =>{
             <div className={styles.infoSection}>
             <h1 className={styles.title}>{product.title}</h1>
             <StarRating rating={product.rate} size={20} sumreview={123} />
-            <span className={styles.category}>{product.category}</span>
+            <span className={styles.category}>{CATEGORIES[product.category]}</span>
             <p className={styles.description}>{product.description}</p>
             
             <div className={styles.priceStockRow}>

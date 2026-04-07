@@ -25,7 +25,7 @@ export default async function ProductDetailPage({ params }: {params: Promise<Par
 
     const { data } = await supabase.from('products').select(`
         *,
-        categories (name) ,
+        categories (label) ,
         product_images (image_url)
       `).eq('id', id) 
       .single(); ;
@@ -36,7 +36,7 @@ export default async function ProductDetailPage({ params }: {params: Promise<Par
         id: data.id,
         title: data.title,
         price: data.price,
-        category: data.categories.name,
+        category: data.categories.label,
         rate: data.average_rate,
         stock: data.stock,
         description: data.description,

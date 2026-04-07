@@ -10,7 +10,7 @@ export default async function ProductsPage() {
 
     const { data } = await supabase.from('products').select(`
         *,
-        categories (name) ,
+        categories (label) ,
         product_images (image_url)
       `);
 
@@ -18,7 +18,7 @@ export default async function ProductsPage() {
         id: item.id,
         title: item.title,
         price: item.price,
-        category: item.categories.name,
+        category: item.categories.label,
         rate: item.average_rate,
         stock: item.stock,
         description: item.description,

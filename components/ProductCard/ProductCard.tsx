@@ -4,7 +4,7 @@ import styles from "./ProductCard.module.css";
 import { Product } from "../../types/Product";
 // import { Product } from "@/types";
 import StarRating from '@/components/Rating/Rating';
-import {CATEGORY_LABELS} from  "@/types/Category";
+import {CATEGORIES} from  "@/types/Category";
 
 type Props = {
     product: Product;
@@ -24,7 +24,7 @@ export default function ProductCard({ product }: Props) {
             </div>
             <div className={styles.productText}>
                 <h2 className={styles.name}>{product.title}</h2>
-                <p className={styles.category}>{CATEGORY_LABELS[product.category]}</p>
+                <p className={styles.category}>{CATEGORIES[product.category]}</p>
                 <StarRating rating={product.rate} size={12} sumreview={1234}/>
                 <div className={styles.salesInfo}>
                     <p className={styles.price}>¥{product.price.toLocaleString()}</p>

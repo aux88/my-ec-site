@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { createClient } from '@/utils/supabase/server'
 import { cookies } from 'next/headers'
+import { CATEGORIES } from "@/types/Category";
 
 interface NewItemCardProps {
     numOfPreview: number;
@@ -17,7 +18,7 @@ export default async function NewItemCard({numOfPreview}:NewItemCardProps) {
 
     const { data } = await supabase.from('products').select(`
         *,
-        categories (name) ,
+        categories (label) ,
         product_images (image_url)
       `);
 
@@ -25,7 +26,7 @@ export default async function NewItemCard({numOfPreview}:NewItemCardProps) {
         id: item.id,
         title: item.title,
         price: item.price,
-        category: item.categories.name,
+        category: item.categories.label,
         rate: item.average_rate,
         stock: item.stock,
         description: item.description,
@@ -53,7 +54,7 @@ export default async function NewItemCard({numOfPreview}:NewItemCardProps) {
                     </div>
                     <div className={styles.product__text}>
                         <h3 className={styles.product__name}>{item.title}</h3>
-                        <p className={styles.product__category}>{item.category}</p>
+                        <p className={styles.product__category}>{CATEGORIES[item.category]}</p>
                         <div className={styles.product__details}>
                             <p className={styles.product__price}>¥{item.price.toLocaleString()}</p>
                             <Link href={`/products/${item.id}`} className={styles.product__link}>詳細を見る</Link>

@@ -1,13 +1,8 @@
-export type Category =
-    | "all"
-    | "clothes"
-    | "accessories"
-    | "gadget"
-    ;
-
-export const CATEGORY_LABELS: Record<Category, string> = {
-    "all": "すべて",
-    "clothes": "衣類",
-    "accessories": "アクセサリー",
-    "gadget": "ガジェット",
-};
+export const CATEGORIES = {
+    all: "すべて",
+    clothes: "衣類",
+    accessories: "アクセサリー",
+    gadget: "ガジェット",
+} as const;
+  
+export type Category = keyof typeof CATEGORIES;

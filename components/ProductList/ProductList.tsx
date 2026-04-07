@@ -1,6 +1,6 @@
 'use client'
 import FilterContext from "@/context/FilterContext";
-import { CATEGORY_LABELS } from "@/types/Category";
+import { CATEGORIES } from "@/types/Category";
 import { Product } from "@/types/Product";
 import { useContext } from "react";
 import { CategoryFilter } from "../Filter/CategoryFilter";
@@ -29,7 +29,7 @@ export const ProductList = ( { products } : ProductListProps) => {
     return (
         <div className={styles.background}>
             <div className={styles.container}>
-                <h2>{category === "all" ? "すべての商品" : CATEGORY_LABELS[category]}</h2>
+                <h2>{category === "all" ? "すべての商品" : CATEGORIES[category]}</h2>
                 <p>{category === "all" ? products.length : products.filter((item) => item.category === category).length}件の商品が見つかりました</p>
                 <div className={styles.filter}><CategoryFilter/></div>
                 <ul className={styles.grid}>
