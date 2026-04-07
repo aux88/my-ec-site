@@ -33,7 +33,7 @@ export const NewItemCard = ({numOfPreview}:NewItemCardProps) => {
             {newItems.map(item =>(
                 <li className={styles.product__card} key={item.id}>
                     <div className={styles.product__imageWrapper}>
-                        <Image src={item.imageUrl} alt={item.title}
+                        <Image src={item.imageUrls[0]} alt={item.title}
                             fill
                             style={{objectFit: "cover"}}/>
                     </div>
