@@ -2,6 +2,9 @@ import { Product } from "@/types/Product"
 import { mockProducts } from "@/lib/mock/products";
 import { notFound } from "next/navigation";
 import { ProductDetail } from "@/components/ProductDetail/ProductDetail"
+import { createClient } from '@/utils/supabase/server'
+import { cookies } from 'next/headers'
+
 
 type Params = {
     id : string;
@@ -17,7 +20,29 @@ export default async function ProductDetailPage({ params }: {params: Promise<Par
     const product = await res.json();
     */
 
-    const product = mockProducts.find((product) => product.id === id );
+    const cookieStore = await cookies();
+    const supabase = createClient(cookieStore);
+
+    const { data } = await supabase.from('products').select(`
+        *,
+        categories (name) ,
+        product_images (image_url)
+      `).eq('id', id) 
+      .single(); ;
+    
+    //const product = mockProducts.find((product) => product.id === id );
+
+    const product: Product | undefined = {
+        id: data.id,
+        title: data.title,
+        price: data.price,
+        category: data.categories.name,
+        rate: data.average_rate,
+        stock: data.stock,
+        description: data.description,
+        publishedAt: data.published_at,
+        imageUrls: data.product_images.map((img: any) => img.image_url),
+      };
 
     if (!product) {
         notFound();

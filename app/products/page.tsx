@@ -1,50 +1,35 @@
-'use client'
-import ProductCard from "@/components/ProductCard/ProductCard";
-import Link from "next/link";
 import { Product } from "@/types/Product";
-import styles from "./page.module.css";
-import { mockProducts } from "@/lib/mock/products";
-import { CategoryFilter } from "@/components/Filter/CategoryFilter";
-import FilterContext from "@/context/FilterContext";
-import { useContext } from "react";
-import { CATEGORY_LABELS } from "@/types/Category";
+import { createClient } from '@/utils/supabase/server'
+import { cookies } from 'next/headers'
+import { ProductList } from "@/components/ProductList/ProductList";
 
-export default function ProductsPage() {
+export default async function ProductsPage() {
 
-    // const res = await fetch(
-    // `${process.env.NEXT_PUBLIC_API_BASE_URL}/products`,
-    // { cache: "no-store" }
-    // );
-    // const products: Product[] = await res.json();
+    const cookieStore = await cookies();
+    const supabase = createClient(cookieStore);
 
-    // 仮データ(本番ではAPIやDBなどから取得)
-    const products: Product[] = [...mockProducts];
+    const { data } = await supabase.from('products').select(`
+        *,
+        categories (name) ,
+        product_images (image_url)
+      `);
 
-    const context = useContext(FilterContext);
+    const products: Product[] | undefined = data?.map((item) => ({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        category: item.categories.name,
+        rate: item.average_rate,
+        stock: item.stock,
+        description: item.description,
+        publishedAt: item.published_at,
+        imageUrls: item.product_images.map((img: any) => img.image_url),
+      }));
 
-    if (!context) return null;
-
-    const { category } = context;
+    const items: Product[] = [...(products ?? [])];
 
     return (
-        <div className={styles.background}>
-            <div className={styles.container}>
-                <h2>{category === "all" ? "すべての商品" : CATEGORY_LABELS[category]}</h2>
-                <p>{category === "all" ? products.length : products.filter((item) => item.category === category).length}件の商品が見つかりました</p>
-                <div className={styles.filter}><CategoryFilter/></div>
-                <ul className={styles.grid}>
-                    {products.map((item) => 
-                        {
-                            if(category==="all"){
-                                return <li className={styles.item} key={item.id}>
-                                    <Link href={`/products/${item.id}`}><ProductCard product={item}/></Link></li>
-                            }
-                            return item.category===category && <li className={styles.item} key={item.id}>
-                                    <Link href={`/products/${item.id}`}><ProductCard product={item}/></Link></li>
-                        }
-                    )}
-                </ul>
-            </div>
-        </div>
+        <ProductList products={items} />
     );
+
 }

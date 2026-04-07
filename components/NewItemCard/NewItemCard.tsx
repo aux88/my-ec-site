@@ -1,25 +1,39 @@
 import { Product } from "@/types/Product";
 import styles from "./NewItemCard.module.css"
 import Image from "next/image";
-import { mockProducts } from "@/lib/mock/products";
 import Link from "next/link";
-import { CATEGORY_LABELS } from "@/types/Category"
+import { createClient } from '@/utils/supabase/server'
+import { cookies } from 'next/headers'
 
 interface NewItemCardProps {
     numOfPreview: number;
 }
 
-export const NewItemCard = ({numOfPreview}:NewItemCardProps) => {
+export default async function NewItemCard({numOfPreview}:NewItemCardProps) {
     console.log(numOfPreview);
 
-    // const res = await fetch(
-    // `${process.env.NEXT_PUBLIC_API_BASE_URL}/products`,
-    // { cache: "no-store" }
-    // );
-    // const items: Product[] = = await res.json();
-    
-    // 仮データ(本番ではAPIやDBなどから取得)
-    const items: Product[] = [...mockProducts];
+    const cookieStore = await cookies();
+    const supabase = createClient(cookieStore);
+
+    const { data } = await supabase.from('products').select(`
+        *,
+        categories (name) ,
+        product_images (image_url)
+      `);
+
+    const products: Product[] | undefined = data?.map((item) => ({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        category: item.categories.name,
+        rate: item.average_rate,
+        stock: item.stock,
+        description: item.description,
+        publishedAt: item.published_at,
+        imageUrls: item.product_images.map((img: any) => img.image_url),
+      }));
+
+    const items: Product[] = [...(products ?? [])];
 
     // itemsを新着順に並べてnubOfPreviewの数だけ新しい配列に格納
     const newItems = [...items]
@@ -39,7 +53,7 @@ export const NewItemCard = ({numOfPreview}:NewItemCardProps) => {
                     </div>
                     <div className={styles.product__text}>
                         <h3 className={styles.product__name}>{item.title}</h3>
-                        <p className={styles.product__category}>{CATEGORY_LABELS[item.category]}</p>
+                        <p className={styles.product__category}>{item.category}</p>
                         <div className={styles.product__details}>
                             <p className={styles.product__price}>¥{item.price.toLocaleString()}</p>
                             <Link href={`/products/${item.id}`} className={styles.product__link}>詳細を見る</Link>
