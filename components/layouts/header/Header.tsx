@@ -7,6 +7,9 @@ import { CgUser } from "react-icons/cg";
 import { CgSearch } from "react-icons/cg";
 import Link from 'next/link';
 import CartContext from "@/context/CartContext";
+import { LoginButton } from "./LoginButton";
+import { SessionProvider } from "next-auth/react";
+import { SignOutButton } from "@/components/Button/SignOutButton";
 
 export const Header = () => {
     const context = useContext(CartContext);
@@ -39,10 +42,10 @@ export const Header = () => {
                             )}
                         </span>
                     </Link>
-                    <Link href="/login" className={styles.header__loginBtn}>
-                        <span className={styles.header__icon}><CgUser /></span>
-                        ログイン
-                    </Link>
+                    <SessionProvider>
+                        <LoginButton/>
+                        <SignOutButton/>
+                    </SessionProvider>
                 </div>
             </div>
         </header> 

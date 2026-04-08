@@ -36,7 +36,7 @@ export default function CartPage() {
                 <div key={item.product.id} className={styles.cartItem}>
                     <div className={styles.imageWrapper}>
                     <Image
-                        src={item.product.imageUrl}
+                        src={item.product.imageUrls[0]}
                         alt={item.product.title}
                         width={100}
                         height={100}

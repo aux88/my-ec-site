@@ -1,8 +1,12 @@
 "use client";
 
+import { SessionProvider } from "next-auth/react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { useForm } from "react-hook-form"
+import { SignInWithGoogle } from "@/components/Button/SignInWithGoogle";
+
+
 type FormData = {
     email: string;
     password: string;
@@ -24,6 +28,7 @@ export default function LoginPage() {
     };
 
     return (
+        <SessionProvider>
         <div className={styles.container}>
             <div className={styles.card}>
                 <h1 className={styles.title}>ログイン</h1>
@@ -51,9 +56,13 @@ export default function LoginPage() {
                     <button type="submit" className={styles.loginBtn} disabled={!formState.isValid}>
                         ログイン
                     </button>
+
+                    <SignInWithGoogle />
+
                 </form>
             </div>
         </div>
+        </SessionProvider>
     );
 }
 
