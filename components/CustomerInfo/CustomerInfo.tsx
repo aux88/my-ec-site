@@ -3,6 +3,7 @@
 import styles from "./CustomerInfo.module.css";
 import { useForm, Controller } from "react-hook-form"
 import { useRouter } from 'next/navigation'
+import { MESSAGE } from '@/lib/message'
 
 type FormData = {
     name: string;
@@ -35,7 +36,7 @@ export const CustomerInfo = () => {
             <div className={styles.formGroup}>
                 <Controller
                     control={control}
-                    rules={{required:"お名前を入力してください"}}
+                    rules={{required: MESSAGE.customerInfo.name.required}}
                     name="name"
                     render={({field,fieldState})=>(
                         <>
@@ -50,10 +51,10 @@ export const CustomerInfo = () => {
                 <Controller
                     control={control}
                     rules={{
-                        required:"メールアドレスを入力してください",
+                        required: MESSAGE.customerInfo.email.required,
                         pattern:{
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, // Regex pattern for email
-                            message: "有効なメールアドレスを入力してください"
+                            message: MESSAGE.customerInfo.email.pattern
                         }
                     }}
                     name="email"
@@ -70,7 +71,7 @@ export const CustomerInfo = () => {
                 <Controller
                     control={control}
                     rules={{
-                        required:"配送先住所を入力してください"
+                        required: MESSAGE.customerInfo.address.required
                     }}
                     name="address"
                     render={({field,fieldState})=>(
@@ -92,10 +93,10 @@ export const CustomerInfo = () => {
                 <Controller
                         control={control}
                         rules={{
-                            required:"電話番号を入力してください",
+                            required: MESSAGE.customerInfo.phone.required,
                             pattern:{
                                 value: /^[0-9-]+$/, // 半角数字+ハイフン
-                                message: "半角数字またはハイフンを入力してください"
+                                message: MESSAGE.customerInfo.phone.pattern
                             }
                         }}
                         name="phone"
