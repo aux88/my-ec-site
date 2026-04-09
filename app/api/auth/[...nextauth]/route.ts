@@ -17,6 +17,7 @@ export const authOptions: NextAuthOptions = {
     //   clientSecret: process.env.GITHUB_CLIENT_SECRET || "",
     // }),
     // ... 他のOAuthプロバイダを追加可能
+    
   ],
 
   // 2) セッション設定

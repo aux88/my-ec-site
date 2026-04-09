@@ -8,7 +8,7 @@ export const SignOutButton = () => {
     
     return (
         <button 
-            className={!session ? styles.disable : ""} 
+            className={`${!session ? styles.disable : ""} ${styles.signOut}`} 
             onClick={() => session && signOut({ callbackUrl: "/login" })}
         >
             ログアウト
