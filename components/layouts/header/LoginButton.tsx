@@ -2,10 +2,10 @@
 import styles from "./Header.module.css";
 import { CgUser } from "react-icons/cg";
 import Link from 'next/link';
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 export const LoginButton = () => {
-    const { data: session, status } = useSession();
+    const { data: session } = useSession();
     
     return (
         <Link href={session ? "/cart" : "/login"} className={styles.header__loginBtn}>

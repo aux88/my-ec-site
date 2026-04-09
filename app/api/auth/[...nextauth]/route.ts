@@ -94,6 +94,9 @@ export const authOptions: NextAuthOptions = {
 
   // 5) デバッグ設定 (開発中にログ表示したいときに便利)
   debug: process.env.NODE_ENV === "development",
+
+  // 6) NEXTAUTH_SECRET
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 // NextAuth関数を実行してRoute Handlerとしてexport
