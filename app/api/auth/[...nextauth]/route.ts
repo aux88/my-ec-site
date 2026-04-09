@@ -1,8 +1,8 @@
 import NextAuth from "next-auth";
 import type { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-// ↑ 他にも GitHubProvider, TwitterProvider, FacebookProvider, CredentialsProvider, ...
-//   など多数のプロバイダを必要に応じてimportできます。
+import CredentialsProvider from "next-auth/providers/credentials";
+import { verifyUserPassword } from "@/lib/auth"; // パスワード検証用の独自関数
 
 // NextAuthOptions は NextAuth.js の設定全体をまとめるオブジェクトの型です。
 export const authOptions: NextAuthOptions = {
@@ -17,7 +17,40 @@ export const authOptions: NextAuthOptions = {
     //   clientSecret: process.env.GITHUB_CLIENT_SECRET || "",
     // }),
     // ... 他のOAuthプロバイダを追加可能
-    
+    CredentialsProvider({
+      name: "Credentials",
+      // credentials フィールドで、ログインフォームから受け取る情報を定義
+      credentials: {
+        email: {
+          label: "Email",
+          type: "email",
+          placeholder: "example@example.com",
+        },
+        password: { label: "Password", type: "password" },
+      },
+
+      // 認証成功・失敗のロジックを定義するメソッド
+      async authorize(credentials, req) {
+        // credentials は { email: string; password: string } の形が入る想定
+        if (!credentials?.email || !credentials?.password) {
+          throw new Error("Missing username or password");
+        }
+        // 独自ロジックでDBのユーザーレコードを確認
+        const user = await verifyUserPassword(
+          credentials.email,
+          credentials.password
+        );
+        if (!user) {
+          throw new Error("Invalid email or password");
+        }
+        // 認証成功ならユーザー情報を返す
+        return {
+          id: user.id,
+          email: user.email,
+          name: user.name,
+        };
+      },
+    }),
   ],
 
   // 2) セッション設定

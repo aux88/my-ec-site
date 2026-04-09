@@ -35,14 +35,15 @@
     justify-content: center;
     column-gap: 8px;
     width: 100%;
-    padding: 16px;
+    padding: 8px;
     border: solid 1px #4f3af4;
     background: none;
     color: #4f3af4;
     border-radius: 8px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 8px;
     transition: background-color 0.2s;
 }
 
