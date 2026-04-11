@@ -37,7 +37,7 @@ export default async function HistoryPage() {
         price
         )
     `)
-    .eq("user_email", session.user?.email) // emailを外部キーとして使っている想定
+    .eq("user_id", session.user?.id) // user_idを外部キーとして使っている
     .order("created_at", { ascending: false });
 
   if (error) {
