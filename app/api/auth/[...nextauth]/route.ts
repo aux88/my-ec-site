@@ -82,10 +82,8 @@ export const authOptions: NextAuthOptions = {
       // (例: 画面にユーザー名やアイコンを表示したい場合)
       if (token) {
         session.accessToken = token.accessToken;
-        console.log("token.id:"+token.id);
         session.user.id = token.user_id;
       }
-      console.log("session", session, token);
       return session;
     },
   },

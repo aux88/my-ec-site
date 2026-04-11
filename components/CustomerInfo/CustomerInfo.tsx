@@ -4,8 +4,11 @@ import styles from "./CustomerInfo.module.css";
 import { useForm, Controller } from "react-hook-form"
 import { useRouter } from 'next/navigation'
 import { MESSAGE } from '@/lib/message'
+import { checkout } from '@/app/actions/checkout'
+import { useContext } from "react";
+import CartContext from "@/context/CartContext";
 
-type FormData = {
+export type FormData = {
     name: string;
     email: string;
     address: string;
@@ -14,6 +17,11 @@ type FormData = {
 
 export const CustomerInfo = () => {
     const router = useRouter();
+
+
+    const context = useContext(CartContext);
+    if (!context) return null;
+    const { cartItems } = context;
 
     const { handleSubmit, control, formState } = useForm<FormData>({
         mode: "onChange",
@@ -26,8 +34,8 @@ export const CustomerInfo = () => {
     });
 
     const onSubmit = (data: FormData) => {
-        // 実際はAPI実行？ボタンが押されたらとりあえず入力内容をログに出す
-        console.log(data);
+        // サーバーアクションを呼び出す
+        checkout(data,cartItems);
         router.push("/thanks");
     };
 

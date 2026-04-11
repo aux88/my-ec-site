@@ -2,7 +2,7 @@
 import { createContext, useState, ReactNode } from "react";
 import { Product } from "@/types/Product";
 
-type CartItem = {
+export type CartItem = {
     product: Product;
     quantity: number;
 };
