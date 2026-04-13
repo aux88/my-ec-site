@@ -16,7 +16,7 @@ export async function checkout(formData:FormData, cartItems:CartItem[]){
     const session = await getServerSession(authOptions);
 
     if (!session) {
-      throw new Error("ログインされていません");
+        return { success: false, message: "ログインされていません" };
     }
 
     const cookieStore = await cookies();
@@ -30,7 +30,7 @@ export async function checkout(formData:FormData, cartItems:CartItem[]){
 
     if (error1) {
         console.error("Insert error:", error1);
-        throw new Error("注文の保存に失敗しました1");
+        return { success: false, message: "注文の保存に失敗しました エラー1" };
     }
 
     const orderItems = cartItems.map((item) => {
@@ -49,7 +49,9 @@ export async function checkout(formData:FormData, cartItems:CartItem[]){
 
     if (error2) {
         console.error("Insert error:", error2);
-        throw new Error("注文の保存に失敗しました2");
+        return { success: false, message: "注文の保存に失敗しました エラー2" };
     }
+
+    return { success: true, message: null };
 
 }

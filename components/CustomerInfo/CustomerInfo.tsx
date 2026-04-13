@@ -5,10 +5,11 @@ import { useForm, Controller } from "react-hook-form"
 import { useRouter } from 'next/navigation'
 import { MESSAGE } from '@/lib/message'
 import { checkout } from '@/app/actions/checkout'
-import { useContext } from "react";
+import { useContext, useTransition } from "react";
 import CartContext from "@/context/CartContext";
+import { useState } from "react";
 
-export type FormData = {
+export type FormData= {
     name: string;
     email: string;
     address: string;
@@ -17,7 +18,9 @@ export type FormData = {
 
 export const CustomerInfo = () => {
     const router = useRouter();
+    const [isPending, startTransition] = useTransition();
 
+    const [serverError, setServerError] = useState<string | null>(null);
 
     const context = useContext(CartContext);
     if (!context) return null;
@@ -33,13 +36,20 @@ export const CustomerInfo = () => {
         },
     });
 
-    const onSubmit = (data: FormData) => {
-        // サーバーアクションを呼び出す
-        checkout(data,cartItems);
-        router.push("/thanks");
+    const onSubmit = async (data: FormData) => {
+        startTransition(async () => {
+            const result = await checkout(data,cartItems);
+            if (!result.success) {
+                // エラーハンドリング
+                setServerError(result.message);
+              } else {
+                router.push("/thanks");
+              }
+            });
     };
 
     return (
+        <>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.formGroup}>
                 <Controller
@@ -120,10 +130,12 @@ export const CustomerInfo = () => {
             <button
                 type="submit"
                 className={styles.checkoutBtn}
-                disabled={!formState.isValid}
+                disabled={!formState.isValid || isPending}
             >
                 注文を確定する
             </button>
+            <p className={styles.errorMessage}>{serverError}</p>
         </form>
+        </>
     );
 }
