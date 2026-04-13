@@ -5,9 +5,10 @@ import { useForm, Controller } from "react-hook-form"
 import { useRouter } from 'next/navigation'
 import { MESSAGE } from '@/lib/message'
 import { checkout } from '@/app/actions/checkout'
-import { useContext, useTransition } from "react";
+import { useContext, useEffect, useTransition } from "react";
 import CartContext from "@/context/CartContext";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 export type FormData= {
     name: string;
@@ -19,14 +20,15 @@ export type FormData= {
 export const CustomerInfo = () => {
     const router = useRouter();
     const [isPending, startTransition] = useTransition();
+    const { data: session } = useSession();
 
     const [serverError, setServerError] = useState<string | null>(null);
 
     const context = useContext(CartContext);
     if (!context) return null;
-    const { cartItems } = context;
+    const { cartItems, resetCartItems } = context;
 
-    const { handleSubmit, control, formState } = useForm<FormData>({
+    const { handleSubmit, control, formState, reset } = useForm<FormData>({
         mode: "onChange",
         defaultValues: {
             name: "",
@@ -43,10 +45,23 @@ export const CustomerInfo = () => {
                 // エラーハンドリング
                 setServerError(result.message);
               } else {
+                resetCartItems();
                 router.push("/thanks");
               }
             });
     };
+
+    useEffect(() => {
+        if (session?.user) {
+            reset((values)=>({
+                ...values,
+                name: values.name || session.user.name || "",
+                email: values.email || session.user.email || "",
+                address: values.address || "",
+                phone: values.phone || "",
+            }));
+        }
+    }, [session,reset]);
 
     return (
         <>

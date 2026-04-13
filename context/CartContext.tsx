@@ -13,6 +13,7 @@ type CartContextValue = {
     removeItem: (productId: string) => void;
     incrementItem: (productId: string) => void;
     decrementItem: (productId: string) => void;
+    resetCartItems: () => void;
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
@@ -68,8 +69,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
         );
     };
 
+    const resetCartItems = () => {
+        setCartItems([]);
+    }
+
     return (
-        <CartContext.Provider value={{ cartItems, addItem, removeItem, incrementItem, decrementItem}}>
+        <CartContext.Provider value={{ cartItems, addItem, removeItem, incrementItem, decrementItem, resetCartItems}}>
         {children}
         </CartContext.Provider>
     );

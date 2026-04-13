@@ -4,6 +4,7 @@ import { useContext } from "react";
 import CartContext from "@/context/CartContext";
 import styles from "./page.module.css";
 import { CustomerInfo } from "@/components/CustomerInfo/CustomerInfo";
+import { SessionProvider } from "next-auth/react";
 
 export default function CartPage() {
     const context = useContext(CartContext);
@@ -33,7 +34,9 @@ export default function CartPage() {
             <div className={styles.checkoutContent}>
                 <div className={styles.formSection}>
                     <h3 className={styles.sectionTitle}>お客様情報</h3>
-                    <CustomerInfo />
+                    <SessionProvider>
+                        <CustomerInfo />
+                    </SessionProvider>
                 </div>
 
                 <div className={styles.confirmSection}>

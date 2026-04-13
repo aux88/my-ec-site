@@ -8,7 +8,7 @@ export const LoginButton = () => {
     const { data: session } = useSession();
     
     return (
-        <Link href={session ? "/cart" : "/login"} className={styles.header__loginBtn}>
+        <Link href={session ? "/history" : "/login"} className={styles.header__loginBtn}>
             <span className={styles.header__icon}><CgUser /></span>
             { session ? session.user?.name : "ログイン" }
         </Link>

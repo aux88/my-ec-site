@@ -52,6 +52,30 @@ export async function checkout(formData:FormData, cartItems:CartItem[]){
         return { success: false, message: "注文の保存に失敗しました エラー2" };
     }
 
+    // 在庫を減らす処理
+    for (const item of cartItems) {
+        const { data: product, error: fetchError } = await supabase
+            .from("products")
+            .select("stock")
+            .eq("id", item.product.id)
+            .single();
+
+        if (fetchError || !product) {
+            console.error(`在庫情報の取得に失敗しました (ID: ${item.product.id}):`, fetchError);
+            continue;
+        }
+
+        const newStock = product.stock - item.quantity;
+        const { error: updateError } = await supabase
+            .from("products")
+            .update({ stock: newStock })
+            .eq("id", item.product.id);
+
+        if (updateError) {
+            console.error(`在庫の更新に失敗しました (ID: ${item.product.id}):`, updateError);
+        }
+    }
+
     return { success: true, message: null };
 
 }
