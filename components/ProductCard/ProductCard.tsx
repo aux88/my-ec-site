@@ -19,6 +19,7 @@ export default function ProductCard({ product }: Props) {
                         src={product.imageUrls[0]}
                         alt=""
                         fill
+                        sizes="(max-width: 768px) 50vw, 25vw"
                         style={{objectFit: "cover"}}
                         />
             </div>

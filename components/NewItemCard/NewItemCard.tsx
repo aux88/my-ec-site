@@ -50,6 +50,7 @@ export default async function NewItemCard({numOfPreview}:NewItemCardProps) {
                     <div className={styles.product__imageWrapper}>
                         <Image src={item.imageUrls[0]} alt={item.title}
                             fill
+                            sizes="(max-width: 768px) 50vw, 25vw"
                             style={{objectFit: "cover"}}/>
                     </div>
                     <div className={styles.product__text}>

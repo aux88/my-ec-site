@@ -23,6 +23,9 @@ export default function Home() {
                         src="/images/hero-image.jpg"
                         alt="ヒーロー画像"
                         fill
+                        sizes="(max-width: 768px) 100vw,
+                            (max-width: 1080px) 50vw,
+                            33vw"
                         style={{objectFit: "cover"}}
                         priority
                         />

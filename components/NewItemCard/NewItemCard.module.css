@@ -6,6 +6,12 @@
 
 }
 
+@media screen and (max-width:768px){
+    .product__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} 
+
 .product__card {
     background-color: #fff;
     border-radius: 8px;
